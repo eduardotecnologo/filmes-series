@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import br.com.edudeveloper.seriesfilmes.calculos.CalculadoraTempo;
 import br.com.edudeveloper.seriesfilmes.calculos.FiltroRecomendacao;
 import br.com.edudeveloper.seriesfilmes.model.Episodio;
@@ -6,8 +8,8 @@ import br.com.edudeveloper.seriesfilmes.model.Serie;
 
 public class Main {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Star Wars"); 
+        Filme meuFilme = new Filme("Star Wars");
+        //meuFilme.setNome("Star Wars"); 
         meuFilme.setAnoLancamento(1980);;
         meuFilme.setDuracaoEmMinutos(180); ;
         
@@ -39,5 +41,21 @@ public class Main {
         episodio.setTotalVisualizacoes(300);
         
         filtro.filtra(episodio);
+        
+        var newFilme = new Filme("A Rede Social");
+
+        newFilme.setDuracaoEmMinutos(300);
+        //newFilme.setNome("A Rede Social");
+        newFilme.setAnoLancamento(2015);
+        newFilme.avalia(10);
+        
+        ArrayList<Filme> listaDeFilmes = new ArrayList<Filme>();
+        listaDeFilmes.add(newFilme);
+        listaDeFilmes.add(meuFilme);
+        
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
     }
 }
